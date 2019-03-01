@@ -1,17 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Add a Blog Entry</h1>
-    <form action="/newpost" method="post">
-        <label>Title for your new blog:
-            <input type="text" name='title'/>
-            <span class='error'>{{title_error}}</span><br>
-            </label> 
-            <label>Your New Blog:            
-                <input type="text" name="body" />
-                <span class='error'>{{body_error}}</span><br>
-            </label>        
-            <input type="submit" value="Add Entry" />
-    </form> 
+    
+  <style>
+      .error { color: red; }
+     
+   </style>
 
+  <form  action="/newpost" method='post'>
+    <label>
+        Blog Title:
+        <input type="text" name="name" value='{{blog_name}}' />
+    </label>
+    <p class="error">{{name_error}}</p>
+    <br>
+    <br>
+    <br>
+    <label>
+       Blog Body:
+       <textarea type="text" name="b_info" >{{blog_b_info}}</textarea>
+    </label>
+    <p class="error">{{b_info_error}}</p>
+    <br>
+    <br>
+       <input type="submit" value='Add Blog' />
+  </form>
 {% endblock %}

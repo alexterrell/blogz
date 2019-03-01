@@ -1,27 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Log in to Blogz!</h1>
-<form action="/login" method="post">
-    <table>
-        <tr>
-            <td>
-                <label for="username">username</label>
-            </td>
-            <td>
-                <input name="username" type="text" value="{{ username }}" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="password">Password</label>
-            </td>
-            <td>
-                <input name="password" type="password" />
-            </td>
-        </tr>
-    </table>
-    <input type="submit" value="Login" />
-</form>
-<p>Don't have an account? <a href="/signup">Create one!</a></p>
+        
+        <h1>Login{{ message}}</h1>
+        
+        <form action="/login" method="POST">
+
+            <input name="username" type="text" value="{{ username }}" placeholder="Username">
+            <p class="error">{{ username_error }}</p>
+
+            <input name="password" type="password" placeholder="Password">
+            <p class="error">{{ password_error }}</p>
+
+            <input type="submit" value="login">
+
+        </form>
+
+        <p>Don't have an account? <a href="/signup">Sign Up here</a></p>
+
+     
 {% endblock %}
